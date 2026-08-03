@@ -5,12 +5,16 @@ quanto mais você abre, mais "rua" o som fica. Em 0% o sinal passa limpo.
 
 ## Download
 
-Baixe o build mais recente (VST3 + Standalone pra Windows) na aba
-[**Releases**](../../releases).
+Baixe o instalador (`MaisRua-X.Y.Z-Setup.exe`) na aba
+[**Releases**](../../releases) e rode — ele instala o VST3 na pasta certa
+(`C:\Program Files\Common Files\VST3`) e o Standalone com atalho no menu
+Iniciar, do jeito que qualquer outro plugin instala. Pede permissão de
+administrador porque escreve em Program Files, igual instalador de VST
+normal.
 
-Pra instalar o VST3: copie `Mais Rua.vst3` pra pasta de plugins VST3 da sua
-DAW (normalmente `C:\Program Files\Common Files\VST3`). O Standalone (`Mais
-Rua.exe`) roda sozinho, sem DAW, pra testar rápido.
+Se preferir sem instalador: o `.zip` com `Mais Rua.vst3` (pasta) e `Mais
+Rua.exe` soltos também está na release — nesse caso copie o `.vst3` você
+mesmo pra pasta de VST3 da sua DAW.
 
 ## O que ele faz
 
@@ -49,6 +53,16 @@ Saídas (com COPY_PLUGIN_AFTER_BUILD já vai pra pasta padrão de plugins do SO)
 
     build/MaisRua_artefacts/Release/VST3/Mais Rua.vst3
     build/MaisRua_artefacts/Release/Standalone/   (pra testar rápido sem DAW)
+
+### Gerar o instalador (Windows)
+
+Depois de compilar o Release, com o [Inno Setup 6](https://jrsoftware.org/isinfo.php)
+instalado:
+
+    ISCC.exe installer\MaisRua.iss
+
+Gera `installer-output\MaisRua-X.Y.Z-Setup.exe`. Pra mudar a versão, edite
+`MyAppVersion` no topo do `installer\MaisRua.iss`.
 
 ## Ajustes rápidos
 

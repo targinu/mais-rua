@@ -3,6 +3,9 @@ build/
 build*/
 out/
 
+# instalador compilado (gerado a partir de installer/MaisRua.iss)
+installer-output/
+
 # Claude Code (config local de permissões, não é pra compartilhar)
 .claude/
 
