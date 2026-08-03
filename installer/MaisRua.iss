@@ -4,8 +4,8 @@
 ; antes de compilar o instalador.
 
 #define MyAppName "Mais Rua"
-#define MyAppVersion "1.0.0"
-#define MyAppPublisher "Rua Audio"
+#define MyAppVersion "1.1.1"
+#define MyAppPublisher "FrozenShade"
 #define MyBuildDir "..\build\MaisRua_artefacts\Release"
 
 [Setup]

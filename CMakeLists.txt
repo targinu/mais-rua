@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(MaisRua VERSION 1.0.0)
+project(MaisRua VERSION 1.1.1)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -14,7 +14,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(JUCE)
 
 juce_add_plugin(MaisRua
-    COMPANY_NAME             "Rua Audio"
+    COMPANY_NAME             "FrozenShade"
     PLUGIN_MANUFACTURER_CODE Rua1
     PLUGIN_CODE              Mru1
     FORMATS                  VST3 Standalone
