@@ -21,7 +21,7 @@ public:
 
 private:
     void timerCallback() override;
-    void drawKnob (juce::Graphics&, juce::Point<float> centre, juce::Colour accent);
+    void drawKnob (juce::Graphics&);
 
     MaisRuaAudioProcessor& processor;
     InvisibleKnobLNF invisibleLnf;
@@ -32,10 +32,7 @@ private:
     juce::ComboBox modoBox;
     std::unique_ptr<juce::AudioProcessorValueTreeState::ComboBoxAttachment> modoAttachment;
 
-    float rua        { 0.0f };   // valor suavizado para o display
-    float phase      { 0.0f };   // fase de animação
-    float levelDecay { 0.0f };   // pico com decay para o glow reagir ao áudio
-    juce::Random rng;
+    float rua { 0.0f };   // valor suavizado (0..1) usado pro desenho
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MaisRuaAudioProcessorEditor)
 };
