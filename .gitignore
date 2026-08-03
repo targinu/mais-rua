@@ -1,0 +1,17 @@
+# build output (inclui o JUCE baixado via FetchContent)
+build/
+build*/
+out/
+
+# Claude Code (config local de permissões, não é pra compartilhar)
+.claude/
+
+# IDE
+.vs/
+.vscode/
+*.user
+CMakeUserPresets.json
+
+# OS
+Thumbs.db
+.DS_Store
