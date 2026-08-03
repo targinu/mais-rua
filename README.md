@@ -30,9 +30,12 @@ A cadeia progride junto com o knob **rua**:
 - compensação de volume e blend wet/dry (em 0% o sinal passa limpo, sample
   a sample, sem zipper noise)
 
-A UI é desenhada à mão: knob com arco reativo, glow que pulsa com o áudio,
-aberração cromática no título, film grain, scanlines, glitch e shake que
-aumentam junto com o valor. A cor vai de teal (chill) a laranja/vermelho (rua).
+A UI é minimalista: só o título e um knob grande, sem textura, sombra ou
+gradiente. Atrás do knob tem uma rua vista de lado — conforme "rua" sobe, os
+prédios somem (espalhado, não em varredura) até sobrar só o asfalto, com
+carros e buracos que vão aparecendo. Nos últimos 20% do knob a cena vira
+noite: o poste acende e some uma casinha pichada, a única estrutura que
+resiste na rua vazia.
 
 ## Build
 
@@ -63,13 +66,3 @@ instalado:
 
 Gera `installer-output\MaisRua-X.Y.Z-Setup.exe`. Pra mudar a versão, edite
 `MyAppVersion` no topo do `installer\MaisRua.iss`.
-
-## Ajustes rápidos
-
-- Versão do JUCE: `GIT_TAG` no `CMakeLists.txt`
-- Intensidade do drive: constante `14.0f` no `processBlock` (`PluginProcessor.cpp`)
-- Ponto onde o bitcrush entra: `(r - 0.35f) / 0.65f`
-- Curva do modo "Grao": função `shapeGrit` no topo de `PluginProcessor.cpp`
-- Fator de oversampling: segundo argumento do `juce::dsp::Oversampling` no
-  construtor do processor (`1` = 2x)
-- Fonte do título: `juce::Font (juce::FontOptions (46.0f, ...))` no `PluginEditor.cpp`
