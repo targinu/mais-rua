@@ -23,28 +23,17 @@ SolidCompression=yes
 ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 PrivilegesRequired=admin
-UninstallDisplayIcon={app}\Mais Rua.exe
+UninstallDisplayIcon={uninstallexe}
 WizardStyle=modern
 
 [Languages]
 Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
-[Types]
-Name: "full"; Description: "Completo (VST3 + Standalone)"
-Name: "vst3only"; Description: "Só o plugin VST3 (pra usar dentro da DAW)"
-Name: "standalonealone"; Description: "Só o app Standalone (sem DAW)"
-
-[Components]
-Name: "vst3"; Description: "Plugin VST3"; Types: full vst3only
-Name: "standalone"; Description: "App Standalone"; Types: full standalonealone
-
 [Files]
-Source: "{#MyBuildDir}\VST3\Mais Rua.vst3\*"; DestDir: "{commoncf64}\VST3\Mais Rua.vst3"; Flags: recursesubdirs ignoreversion; Components: vst3
-Source: "{#MyBuildDir}\Standalone\Mais Rua.exe"; DestDir: "{app}"; Flags: ignoreversion; Components: standalone
+Source: "{#MyBuildDir}\VST3\Mais Rua.vst3\*"; DestDir: "{commoncf64}\VST3\Mais Rua.vst3"; Flags: recursesubdirs ignoreversion
 
 [Icons]
-Name: "{group}\Mais Rua"; Filename: "{app}\Mais Rua.exe"; Components: standalone
 Name: "{group}\Desinstalar Mais Rua"; Filename: "{uninstallexe}"
 
 [UninstallDelete]

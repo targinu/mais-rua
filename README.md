@@ -7,14 +7,12 @@ quanto mais você abre, mais "rua" o som fica. Em 0% o sinal passa limpo.
 
 Baixe o instalador (`MaisRua-X.Y.Z-Setup.exe`) na aba
 [**Releases**](../../releases) e rode — ele instala o VST3 na pasta certa
-(`C:\Program Files\Common Files\VST3`) e o Standalone com atalho no menu
-Iniciar, do jeito que qualquer outro plugin instala. Pede permissão de
-administrador porque escreve em Program Files, igual instalador de VST
-normal.
+(`C:\Program Files\Common Files\VST3`), do jeito que qualquer outro plugin
+instala. Pede permissão de administrador porque escreve em Program Files,
+igual instalador de VST normal.
 
-Se preferir sem instalador: o `.zip` com `Mais Rua.vst3` (pasta) e `Mais
-Rua.exe` soltos também está na release — nesse caso copie o `.vst3` você
-mesmo pra pasta de VST3 da sua DAW.
+Se preferir sem instalador: o `.zip` com `Mais Rua.vst3` (pasta) também está
+na release — nesse caso copie ele você mesmo pra pasta de VST3 da sua DAW.
 
 ## O que ele faz
 

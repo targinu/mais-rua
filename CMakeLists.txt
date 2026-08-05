@@ -17,7 +17,7 @@ juce_add_plugin(MaisRua
     COMPANY_NAME             "FrozenShade"
     PLUGIN_MANUFACTURER_CODE Rua1
     PLUGIN_CODE              Mru1
-    FORMATS                  VST3 Standalone
+    FORMATS                  VST3
     PRODUCT_NAME             "Mais Rua"
     IS_SYNTH                 FALSE
     NEEDS_MIDI_INPUT         FALSE
