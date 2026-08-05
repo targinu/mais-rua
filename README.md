@@ -37,32 +37,7 @@ carros e buracos que vão aparecendo. Nos últimos 20% do knob a cena vira
 noite: o poste acende e some uma casinha pichada, a única estrutura que
 resiste na rua vazia.
 
-## Build
-
-Requisitos: CMake 3.22+, compilador C++17 (MSVC / clang / gcc) e git
-(o CMake baixa o JUCE via FetchContent na primeira compilação).
-
-Linux precisa dos headers de dev:
-
-    sudo apt install libasound2-dev libx11-dev libxext-dev libxinerama-dev \
-                     libxrandr-dev libxcursor-dev libfreetype6-dev libcurl4-openssl-dev
-
-Compilar:
-
-    cmake -B build -DCMAKE_BUILD_TYPE=Release
-    cmake --build build --config Release
-
-Saídas (com COPY_PLUGIN_AFTER_BUILD já vai pra pasta padrão de plugins do SO):
-
-    build/MaisRua_artefacts/Release/VST3/Mais Rua.vst3
-    build/MaisRua_artefacts/Release/Standalone/   (pra testar rápido sem DAW)
-
-### Gerar o instalador (Windows)
-
-Depois de compilar o Release, com o [Inno Setup 6](https://jrsoftware.org/isinfo.php)
-instalado:
-
-    ISCC.exe installer\MaisRua.iss
-
-Gera `installer-output\MaisRua-X.Y.Z-Setup.exe`. Pra mudar a versão, edite
-`MyAppVersion` no topo do `installer\MaisRua.iss`.
+Clicar em "MAIS RUA BY FROZENSHADE", no rodapé do plugin, abre uma tela
+"sobre" com a versão instalada e um botão pra checar se tem atualização
+nova. O troféu no canto abre a lista de conquistas escondidas — cada uma
+mostra o requisito pra desbloquear.

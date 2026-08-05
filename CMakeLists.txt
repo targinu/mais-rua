@@ -22,16 +22,19 @@ juce_add_plugin(MaisRua
     IS_SYNTH                 FALSE
     NEEDS_MIDI_INPUT         FALSE
     NEEDS_MIDI_OUTPUT        FALSE
+    VST3_CATEGORIES          Fx Distortion
     COPY_PLUGIN_AFTER_BUILD  TRUE)
 
 target_sources(MaisRua PRIVATE
     Source/PluginProcessor.cpp
-    Source/PluginEditor.cpp)
+    Source/PluginEditor.cpp
+    Source/Achievements.cpp)
 
 target_compile_definitions(MaisRua PUBLIC
     JUCE_WEB_BROWSER=0
     JUCE_USE_CURL=0
-    JUCE_VST3_CAN_REPLACE_VST2=0)
+    JUCE_VST3_CAN_REPLACE_VST2=0
+    MAISRUA_VERSION="${PROJECT_VERSION}")
 
 target_link_libraries(MaisRua
     PRIVATE

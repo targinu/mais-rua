@@ -39,6 +39,7 @@ public:
 
     // lidos pela UI para os visuais
     float getRuaValue()    const noexcept { return ruaParam != nullptr ? ruaParam->load() : 0.0f; }
+    float getModoValue()   const noexcept { return modoParam != nullptr ? modoParam->load() : 0.0f; }
     float getOutputLevel() const noexcept { return outputLevel.load(); }
 
 private:
