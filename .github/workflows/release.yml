@@ -1,0 +1,80 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure
+        run: cmake -B build -A x64
+
+      - name: Build (Release)
+        run: cmake --build build --config Release --parallel
+
+      - name: Install Inno Setup
+        run: choco install innosetup -y
+
+      - name: Compile installer
+        run: '& "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" installer\MaisRua.iss'
+        shell: pwsh
+
+      - name: Zip portable VST3
+        run: |
+          $dest = "build\MaisRua_artefacts\Release\VST3"
+          Compress-Archive -Path "$dest\Mais Rua.vst3" -DestinationPath "MaisRua-${{ github.ref_name }}-windows.zip"
+        shell: pwsh
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows-assets
+          path: |
+            installer-output\*.exe
+            MaisRua-${{ github.ref_name }}-windows.zip
+
+  build-macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure
+        run: cmake -B build -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build (Release)
+        run: cmake --build build --config Release --parallel
+
+      - name: Zip VST3 + AU
+        run: |
+          cd build/MaisRua_artefacts/Release
+          zip -r "$GITHUB_WORKSPACE/MaisRua-${{ github.ref_name }}-macos.zip" VST3 AU
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: macos-assets
+          path: MaisRua-${{ github.ref_name }}-macos.zip
+
+  release:
+    needs: [build-windows, build-macos]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: assets
+          merge-multiple: true
+
+      - name: Create draft release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          tag_name: ${{ github.ref_name }}
+          name: "Mais Rua ${{ github.ref_name }}"
+          files: assets/*

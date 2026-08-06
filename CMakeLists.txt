@@ -13,11 +13,17 @@ FetchContent_Declare(
     UPDATE_DISCONNECTED TRUE)      # não fica checando/atualizando o clone a cada reconfigure
 FetchContent_MakeAvailable(JUCE)
 
+set(MAISRUA_FORMATS VST3)
+if (APPLE)
+    list(APPEND MAISRUA_FORMATS AU)
+endif()
+
 juce_add_plugin(MaisRua
     COMPANY_NAME             "FrozenShade"
+    BUNDLE_ID                com.frozenshade.maisrua
     PLUGIN_MANUFACTURER_CODE Rua1
     PLUGIN_CODE              Mru1
-    FORMATS                  VST3
+    FORMATS                  ${MAISRUA_FORMATS}
     PRODUCT_NAME             "Mais Rua"
     IS_SYNTH                 FALSE
     NEEDS_MIDI_INPUT         FALSE
