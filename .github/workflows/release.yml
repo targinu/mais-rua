@@ -77,4 +77,4 @@ jobs:
           draft: true
           tag_name: ${{ github.ref_name }}
           name: "Mais Rua ${{ github.ref_name }}"
-          files: assets/*
+          files: assets/**/*
